@@ -1,0 +1,130 @@
+﻿<Window x:Class="CSharpCodeGenerator.EnterMatrix"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharpCodeGenerator"
+        mc:Ignorable="d"
+        Title="EnterMatrix" Height="1000" Width="1900" FontWeight="Bold"
+        Icon="/images/sharp.ico" Background="LightGray" Cursor="Hand"
+        WindowState="Maximized" KeyDown="Window_KeyDown"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+
+        <Menu FontSize="10" Background="LightBlue" Height="40" VerticalAlignment="Top"
+              FontWeight="Bold" BorderThickness="1" BorderBrush="Black" Width="200" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+            <MenuItem Header="Program" Height="40" HorizontalAlignment="Left">
+                <MenuItem Header="Загрузить код" Click="GetExistingCode_Click"/>
+                <MenuItem Header="Сохранить матрицу" Click="SaveMatrix_Click" />
+                <MenuItem Header="Управление">
+                    <MenuItem Header="Сменить фоновый цвет" Click="ChangeBackground_Click"/>
+                    <MenuItem Header="Сменить шрифт" Click="ChangeFont_Click"/>
+                    <MenuItem Header="Выход" Click="Exit_Click"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Тест" Height="40" HorizontalAlignment="Center" Click="Test_Click"/>
+            <MenuItem Height="40" HorizontalAlignment="Right" Click="Info_Click">
+                <MenuItem.Icon>
+                    <Image Source="D:\prog\CSharpCodeGenerator\images\information.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+        </Menu>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,40,0,0"  Grid.RowSpan="2">
+
+            <TextBlock Foreground="#FF1040C1" DockPanel.Dock="Top" Margin="0,20,0,0" FontWeight="Bold" HorizontalAlignment="Center">
+                       <Run Text="Количество классов"/><LineBreak/>
+                        <Run Text="   'enter' для ввода:"/><LineBreak/>
+            </TextBlock>
+            <Slider x:Name="classeNumberSlider" DockPanel.Dock="Top" Height="29" Width="111" Maximum="26" Foreground="#FF1040C1"
+                        SmallChange="1" ValueChanged="classeNumberSlider_ValueChanged" KeyDown="classeNumberSlider_KeyDown"/>
+            <TextBlock x:Name="classesNumberLabel" Text="1" Height="15" Width="40" Foreground="#FF1040C1"
+                        FontWeight="Bold" TextAlignment="Center"/>
+            <TextBlock Foreground="#FF1040C1" DockPanel.Dock="Top" Margin="0,20,0,0" FontWeight="Bold" HorizontalAlignment="Center" TextAlignment="Center">
+                       <Run Text="Таймер"/><LineBreak/>
+                        <Run Text="бездействия:"/><LineBreak/>
+            </TextBlock>
+            <ProgressBar x:Name="ProgramCloseTimer" Width="140" HorizontalAlignment="Center"
+                         Height="10" Foreground="#FF1040C1" Background="LightBlue" Maximum="600" Value="1"  Margin="0, 10, 0, 0"/>
+            <Button x:Name="enterValuesBTN" Content="Ввод" Cursor="Hand" MaxWidth="200" HorizontalAlignment="Center" FontWeight="Bold"
+                        Click="enterValuesBTN_Click" Background="#FF1040C1"  Margin="0, 10, 0, 0" Width="140"/>
+            <TextBlock Foreground="#FF1040C1" DockPanel.Dock="Top" Margin="0,10,0,0" FontWeight="Bold" HorizontalAlignment="Center" TextAlignment="Center">
+                       <Run Text="Список доступных матриц"/><LineBreak/>
+                        <Run Text="в директории:"/><LineBreak/>
+                        <Run Text="D:\prog\CSharpCodeGenera"/><LineBreak/>
+                        <Run Text="tor\matrices\*.txt"/><LineBreak/>
+            </TextBlock>
+            <ListBox x:Name="listWithMatrices" Margin="1,10,1,1" FontWeight="Bold" Foreground="#FF1040C1"
+                     SelectionChanged="listWithMatrices_SelectionChanged">
+
+            </ListBox>
+
+
+        </StackPanel>
+
+        <StackPanel Grid.RowSpan ="2" Grid.Column="1">
+            <DataGrid x:Name="MatrixDataGrid" CanUserAddRows="False" Margin="5,0,0,0" FontWeight="Bold" CanUserSortColumns="False" BorderBrush="Black"
+                HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="Black" GridLinesVisibility="All" Background="White" MaxHeight="420"
+                  BorderThickness="2" FontSize="16" AllowDrop="True"  Drop="MatrixDataGrid_Drop" PreviewDragOver="MatrixDataGrid_PreviewDragOver">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FF1040C1"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+
+            
+        </StackPanel>
+        <Border Background="AliceBlue" MaxHeight="400" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Bottom" Margin="5,5,0,10" Cursor="Arrow">
+            <Image x:Name="GraphPictureBox"/>
+        </Border>
+
+
+
+        <DockPanel LastChildFill="True" Grid.Row="1" Margin="5,5,5,5" Grid.ColumnSpan="3">
+
+            <TextBlock x:Name="errorTB" Foreground="Red" FontWeight="Bold"
+                   FontSize="11" Visibility="Hidden" DockPanel.Dock="Right">
+            <Run Text="Данные введены некоректно. Возможные ошибки:"/><LineBreak/>
+            <Run Text="1. Была попытка агрегирования во вложенном классе"/><LineBreak/>
+            <Run Text="2. Введены не целочисленные данные"/><LineBreak/>
+            <Run Text="3. Один из классов агрегируется сам с собой (число на диагонали)"/></TextBlock>
+        </DockPanel>
+
+        <TextBox x:Name="CodeViewer" Grid.Column="3" Grid.Row="0" AcceptsReturn="True"  AcceptsTab="True" Background="White" Foreground="black"
+                     FontWeight="Bold" Margin="1,10,3,1" BorderBrush="Black" BorderThickness="2" FontSize="13"
+                 SelectionChanged="CodeViewer_SelectionChanged"/>
+
+        <StackPanel Grid.Column="3" Grid.Row="1">
+            <Button x:Name="saveCodeBTN" Content="Сохранить" HorizontalAlignment="Left" Background="#FF1040C1"
+                    FontWeight="Bold" Width="125" Margin="1, 15,0,0" Cursor="Hand" Click="saveCodeBTN_Click"/>
+
+            <CheckBox x:Name="TranslateCB" Content="Транслировать" Margin="1,5,0,0" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left"
+                  IsChecked="True" Height="25" Grid.Row="2" Background="#FF1040C1"/>
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem>
+                    <TextBlock Name="lblCursorPosition" />
+                </StatusBarItem>
+            </StatusBar>
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="CSharpCodeGenerator.Controller.FormSettings">
+    <Position X="11" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAIAAAAAAAAAgAAAIAAQAAQAAAA=</HashCode>
+      <FileName>Controller\FormSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.Controller.ControllerClass">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAQCAAAACEACCAAABABAAgAAAAAAEAAAACAAAAgA=</HashCode>
+      <FileName>Controller\ControllerClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.Models.Check">
+    <Position X="4" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Check.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.Models.CodeMaker">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAgAAAIEAQAAAAAKAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CodeMaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.Models.MakeDataGrid">
+    <Position X="4.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MakeDataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.Models.Matrix">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAgCAACAAIQAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Model\Matrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.Model.DrawingGraph">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABEAACAAAAAAAAAAAAABEIIAAACAAIAAAAEAAAQQg=</HashCode>
+      <FileName>Model\DrawingGraph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.Model.FileWorker">
+    <Position X="1" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAAAACAgA=</HashCode>
+      <FileName>Model\FileWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharpCodeGenerator.Model.Graph">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="CSharpCodeGenerator.Model.Graph.Node" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Graph.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="CSharpCodeGenerator.Model.Graph.Edge" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Graph.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAQAAAAABAAAAAAAAAACgAQAAA=</HashCode>
+      <FileName>Model\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="CSharpCodeGenerator.View.TypeOfAgregation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharpCodeGenerator.View"
+        mc:Ignorable="d" FontWeight="Bold" FontFamily="century gothic"
+        Icon="/images/sharp.ico" Background="LightGray" ResizeMode="NoResize" Foreground="#FF1040C1"
+        Title="TypeOfAgregation" Height="350" Width="720" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="LinkTextBlock" Grid.Row="0" Grid.ColumnSpan="3" Text="Выберите тип связи для" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
+        <Button x:Name="ByLinkButton" Grid.Row="1" Grid.Column="0" Content="Агрегация по ссылке" Background="#FF1040C1" FontWeight="Bold" Margin="5,0,5,0" Click="ByLinkButton_Click"/>
+        <Button x:Name="ByValuekButton" Grid.Row="1" Grid.Column="1" Content="Агрегация по значению" Background="#FF1040C1" FontWeight="Bold" Margin="5,0,5,0" Click="ByValuekButton_Click"/>
+        <Button x:Name="NestkButton" Grid.Row="1" Grid.Column="2" Content="Агрегация вложением" Background="#FF1040C1" FontWeight="Bold" Margin="5,0,5,0" Click="NestkButton_Click"/>
+
+    </Grid>
+</Window>
